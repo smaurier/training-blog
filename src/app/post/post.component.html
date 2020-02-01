@@ -1,0 +1,12 @@
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': postLoveIts > 0,
+'list-group-item-danger': postLoveIts < 0}">
+  <p [ngStyle]="{color:getColor()}">{{ postTitle }}</p>
+  <p>{{ postCreatedAt | date: 'mediumDate' }}</p>
+  <p> {{ postContent }} </p>
+  <div>
+    <button class="btn btn-success" (click)="onLike()">Like it !</button>
+    <button class="btn btn-danger" (click)="onDislike()">Don't like it !</button>
+    <p *ngIf="this.postLoveIts !== 0"> {{this.postLoveIts}} </p>
+  </div>
+</li>
